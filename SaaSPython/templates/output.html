@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+   <body>
+      <table border = 1>
+          <caption>Detected labels</caption>
+          <tr>
+               <th> mid </th>
+               <th> Description </th>
+               <th> Score </th>
+               <th> Topicality </th>
+
+          </tr>
+
+         {% for post in posts %}
+            <tr>
+               <td> {{ post.mid }} </td>
+                <td> {{ post.description }} </td>
+                <td> {{ post.score }} </td>
+                <td> {{ post.topicality }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+   </body>
+</html>
