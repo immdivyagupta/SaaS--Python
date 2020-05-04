@@ -1,0 +1,43 @@
+<h1>Google Cloud Platform - Labels Detection Sample</h1>
+
+<br>
+
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+  <body>
+    <form action="upload_photo" method="POST" enctype="multipart/form-data">
+      Upload File: <input type="file" name="file"><br>
+      <input type="submit" name="submit" value="Submit">
+    </form>
+    {% for image_entity in image_entities %}
+      <img src="{{image_entity['image_public_url']}}" width=200 height=200>
+      <p>{{image_entity['blob_name']}} was uploaded {{image_entity['timestamp']}}.</p>
+      <table style="width:100%">
+          <caption>List of detected Labels</caption>
+          <tr>
+               <th> mid </th>
+               <th> Description </th>
+               <th> Score </th>
+
+          </tr>
+
+         {% for post in image_entity['desciption']%}
+            <tr>
+               <td> {{ post.mid }} </td>
+                <td> {{ post.description }} </td>
+                <td> {{ post.score }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+
+
+    {% endfor %}
+  </body>
+</html> 
